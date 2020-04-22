@@ -228,14 +228,14 @@ public:
         std::cout << "***Warning: addAt(data*,pos) position not found. Potential invalid position argument.***" << std::endl;
     }// F end
 /**********************************************************************************************************************/
-    void remAt(const int pos)/****Still Being Developed****/
-    {
+    //void remAt(const int pos)//****Still Being Developed****//
+    /*{
         if(head == NULL){}
         if(pos == 0)
         {
 
         }// If
-    }// F end
+    }*/  // F end
 /**********************************************************************************************************************/
     var_type* readNode(const int pos)
     {
