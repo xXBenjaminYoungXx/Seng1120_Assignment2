@@ -111,7 +111,7 @@ public:
     //
     // Post-Condition: Node
     //
-    // Note: Uses setListTo to empty list
+    // Note: Uses setListTo(NULL, 0) to empty list
     void empty()
     {
         setListTo(NULL, 0);        // Remove List elements
