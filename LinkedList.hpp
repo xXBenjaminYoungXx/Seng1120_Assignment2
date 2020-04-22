@@ -1,26 +1,31 @@
 //
-// Created by User on 7/04/2020.
+// Seng1120: Assignment 2
+// File: LinkedList.hpp
+// Author: Benjamin Yong
+// Student ID: C3330653
+// Date: 7/04/2020.
 //
-//***Functions***//
-//1.LinkedList Constructors
-//2.Destructor
-//3.setListTo(array)
-//4.addToTop(data*)//BUG: IF HEAD ==TAIL
-//5.remFromTop()
-//6.addToBottom(data*)//BUG: IF HEAD == TAIL
-//7.remFromBottom()
-//8.data* readNode(position(0-size()))
-//9.int size()
-//10.+= concatenate
-//11.[i] index at pos i
-//12.= L2: setListTo(L2);
-//13.<< print List
-//14. == return bool if linked list is equal to the other
-//15. != !(==)
+// ***Functions***
+// 1.LinkedList Constructors
+// 2.Destructor
+// 3.setListTo(var_type array, int size)
+// 4.empty()
+// 5.addToTop(var_type*)
+// 6.remFromTop()
+// 7.addToBottom(var_type*)
+// 8.remFromBottom()
+// 9.addAt(Node*, int pos)
+// 10.data* readNode(int pos)
+// 11.int size()
+// 12.+= concatenate
+// 13.[i] index at pos i
+// 14.= L2: setListTo(L2);
+// 15.<< print List
+// 16. == return bool if linked list is equal to the other
+// 17. != !(==)
 //
-//***Functions to add***
-//1. addAt(i)--> adds node into pos i shifting nodes down
-//2. remAt(i()--> removed node at i shifting nodes up
+// ***Functions to add***
+// 1. remAt(i()--> removed node at i shifting nodes up
 
 
 #ifndef LAB7_LINKEDLIST_HPP
@@ -234,17 +239,17 @@ public:
 /**********************************************************************************************************************/
     var_type* readNode(const int pos)
     {
-        iterator = head;
+        iterator = head;                                                                    // Assign Iterator
 
-        if(head == NULL)
-        {
-            std::cout << "***Warning: readNode(pos) List has no elements.***" << std::endl;
+        if(head == NULL)                                                                    // No Nodes
+        {                                                                                   //
+            std::cout << "***Warning: readNode(pos) List has no elements.***" << std::endl; // Display Error message
             return NULL;
         }// If
 
-        for(int count = 0; iterator != NULL; count ++)
-        {
-            if(count == pos)
+        for(int count = 0; iterator != NULL; count ++)                                      // Scan List
+        {                                                                                   //
+            if(count == pos)                                                                // Node found
             {
                 return iterator->getD();
             }// If
@@ -257,10 +262,10 @@ public:
 /**********************************************************************************************************************/
     int size()
     {
-        iterator = head;
+        iterator = head;                // Assign iterator
         int count = 0;
 
-        while(iterator != NULL)
+        while(iterator != NULL)         // Increment through List
         {
             count++;
             iterator = iterator->getN();
@@ -274,8 +279,7 @@ public:
         int count = L2.size();
         for(int i = 0; i < count; i++)
         {
-            //For every element create and associate node
-            addToBottom(*(L2.readNode(i)));
+            addToBottom(*(L2.readNode(i)));// For every element create a respective node
         }// For
         return *this;
     }// F end
@@ -287,7 +291,7 @@ public:
 /**********************************************************************************************************************/
     LinkedList<var_type>& operator = (LinkedList<var_type>& L2)
     {
-        setListTo(NULL, 0);//ResetList
+        setListTo(NULL, 0);              //ResetList
 
         int count = L2.size();
         int index = 0;
@@ -312,7 +316,6 @@ template <typename var_type>
 std::ostream& operator << (std::ostream& out, LinkedList<var_type>& list)
 {
     int count = 0;
-
     //Required operation is to print out the components of each node in order
     while(count < list.size())
     {
