@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/User/Desktop/UON/Year2/Sem1/Seng1120/Cpp_Files/Assignment2/LinkedList.hpp
+Node.hpp
+C:/Users/User/Desktop/UON/Year2/Sem1/Seng1120/Cpp_Files/Assignment2/Node.hpp
+iostream
+-
+
+C:/Users/User/Desktop/UON/Year2/Sem1/Seng1120/Cpp_Files/Assignment2/Node.hpp
+cstddef
+-
+
+C:/Users/User/Desktop/UON/Year2/Sem1/Seng1120/Cpp_Files/Assignment2/main.cpp
+iostream
+-
+LinkedList.hpp
+C:/Users/User/Desktop/UON/Year2/Sem1/Seng1120/Cpp_Files/Assignment2/LinkedList.hpp
+
