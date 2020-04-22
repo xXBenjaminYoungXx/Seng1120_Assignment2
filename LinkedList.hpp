@@ -3,6 +3,7 @@
 // File: LinkedList.hpp
 // Author: Benjamin Yong
 // Student ID: C3330653
+// Email: BenjaminYoung7198@gmail.com
 // Date: 7/04/2020.
 //
 // ***Functions***
@@ -39,6 +40,9 @@ class LinkedList
 {
 public:
 /**********************************************************************************************************************/
+    // Pre-Condition: None
+    //
+    // Post-Condition: None
     LinkedList()
     {
         head = NULL;                // Initialise Object variables
@@ -46,6 +50,9 @@ public:
         iterator = NULL;            //
     }// F end
 /**********************************************************************************************************************/
+    // Pre-Condition: dataArray of var_type, and integer of array size
+    //
+    // Post-Condition: None
     LinkedList(const var_type dataList[], const int size)
     {
         head = NULL;                // Initialise Object variables
@@ -54,6 +61,9 @@ public:
         setListTo(dataList, size);  // Add dataList elements to List Object
     }// F end
 /**********************************************************************************************************************/
+    // Pre-Condition: None
+    //
+    // Post-Condition: None
     ~LinkedList()
     {
         iterator = head;                 // Set to start of list
@@ -70,7 +80,11 @@ public:
         tail = NULL;
     }// F end
 /**********************************************************************************************************************/
-    //Initialise list/reset to
+    // Pre-Condition: dataArray of var_type, and integer of array size
+    //
+    // Post-Condition: None
+    //
+    // Note: Can be used to empty List
     void setListTo(const var_type dataList[], const int size)
     {
         //Reset List (Same Logic as deconstruct)
@@ -93,12 +107,19 @@ public:
         }
     }// F end
 /**********************************************************************************************************************/
+    // Pre-Condition: None
+    //
+    // Post-Condition: Node
+    //
+    // Note: Uses setListTo to empty list
     void empty()
     {
         setListTo(NULL, 0);        // Remove List elements
     }// F end
 /**********************************************************************************************************************/
-    //Add/remove from top
+    // Pre-Condition: Reference to var_type
+    //
+    // Post-Condition: None
     void addToTop(const var_type& temp)
     {
         var_type* dataPt = new var_type(temp);              // Copy data onto heap
@@ -123,6 +144,9 @@ public:
         }// If
     }// F end
 /**********************************************************************************************************************/
+    // Pre-Condition: None
+    //
+    // Post-Condition: None
     void remFromTop()
     {
         if(head == NULL)        // Nothing here
@@ -147,7 +171,9 @@ public:
         }// If
     }// F End
 /**********************************************************************************************************************/
-    //Add/remove from bottom
+    // Pre-Condition: None
+    //
+    // Post-Condition: None
     void addToBottom(const var_type& temp) {
         var_type* dataPt = new var_type(temp);              // Copy data onto heap
         if (tail == NULL)                                   // New list
@@ -171,6 +197,9 @@ public:
         }// If
     }// F end
 /**********************************************************************************************************************/
+    // Pre-Condition: None
+    //
+    // Post-Condition: None
     void remFromBottom()
     {
         if(tail == NULL)        //Nothing here
@@ -195,6 +224,9 @@ public:
         }// If
     }// F end
 /**********************************************************************************************************************/
+    // Pre-Condition: reference to var_type
+    //
+    // Post-Condition: int of position in array
     void addAt(const var_type& temp, const int pos)
     {
         iterator = head;                                                  // Assign Iterator
@@ -228,6 +260,9 @@ public:
         std::cout << "***Warning: addAt(data*,pos) position not found. Potential invalid position argument.***" << std::endl;
     }// F end
 /**********************************************************************************************************************/
+    // Pre-Condition:
+    //
+    // Post-Condition:
     //void remAt(const int pos)//****Still Being Developed****//
     /*{
         if(head == NULL){}
@@ -237,6 +272,9 @@ public:
         }// If
     }*/  // F end
 /**********************************************************************************************************************/
+    // Pre-Condition: int position of List
+    //
+    // Post-Condition: var_type* to data
     var_type* readNode(const int pos)
     {
         iterator = head;                                                                    // Assign Iterator
@@ -260,6 +298,9 @@ public:
         return NULL;
     }// F end
 /**********************************************************************************************************************/
+    // Pre-Condition: None
+    //
+    // Post-Condition: int of List size
     int size()
     {
         iterator = head;                // Assign iterator
@@ -274,6 +315,9 @@ public:
         return count;
     }// F end
 /**********************************************************************************************************************/
+    // Pre-Condition: LinkedList<var_type> Reference
+    //
+    // Post-Condition: this.List concatenated with L2 as a reference
     LinkedList<var_type>& operator += (LinkedList<var_type>& L2)
     {
         int count = L2.size();
@@ -284,11 +328,17 @@ public:
         return *this;
     }// F end
 /**********************************************************************************************************************/
+    // Pre-Condition: int position
+    //
+    // Post-Condition: var_type& reference
     var_type& operator [] (const int pos)
     {
         return *(readNode(pos));
     }
 /**********************************************************************************************************************/
+    // Pre-Condition: LinkedList<var_type> Reference
+    //
+    // Post-Condition: LinkedList<var_type > Reference
     LinkedList<var_type>& operator = (LinkedList<var_type>& L2)
     {
         setListTo(NULL, 0);              //ResetList
