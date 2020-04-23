@@ -34,7 +34,7 @@ public:
         delete(Rod_List);
     }
 
-    /*void move(int rodFrom, int rodTo)
+    void move(int rodFrom, int rodTo)
     {
         if((rodFrom > 3) || (rodTo > 3) || (rodFrom < 1) || (rodTo < 1))      // Check params
         {
@@ -48,24 +48,24 @@ public:
             return;
         }
 
-        if((Rod_List->readNode(rodFrom-1)->numOfDiscs() == 0))         // Take disc-data from rodFrom
+        if((Rod_List->readNode(rodFrom-1)->numOfDiscs() == 0))       // Take disc-data from rodFrom
         {                                                            //
             cout << "***Invalid Rod choice. Rod is empty***" << endl;// Issues include empty list
+            return;
         }
-
-
         // Read rodTo to see if a disc exists, and if so ensure its larger
-        if(!(Rod_List->readNode(rodTo-1)->numOfDiscs() == 0))// There is a disc
+        if(Rod_List->readNode(rodTo - 1)->numOfDiscs() != 0)// There is a disc
         {
-
+            if(Rod_List->readNode(rodTo-1)->sizeOfTopDisc() < Rod_List->readNode(rodFrom-1)->sizeOfTopDisc())
+            {
+                cout << "***Invalid Move. Disk on rod is to small***" << endl;
+                return;
+            }
         }
 
-        int disc_removed_Size;
-        disc_removed_Size = Rod_List->readNode(rodFrom-1)->removeFromRod();
-
-
+        Rod_List->readNode(rodTo-1)->addToRod( Rod_List->readNode(rodFrom-1)->removeFromRod() );
+        return;
     }
-*/
 private:
     LinkedList< LStack<var_type> >* Rod_List;
 };
