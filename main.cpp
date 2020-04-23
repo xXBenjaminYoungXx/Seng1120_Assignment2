@@ -12,8 +12,11 @@ using namespace std;
 
 typedef int var;
 int main(){
-    TowerHanoi<DiscString> game(5);
+    TowerHanoi<DiscInt> game(5);
     game.move(1,2);
     game.move(1,3);
+    game.move(2,3);
+    cout << (game.gamePrint(1,0));
+    cout << "Success";
 }
 

@@ -17,6 +17,7 @@
 #ifndef ASSIGNMENT2_LSTACK_HPP
 #define ASSIGNMENT2_LSTACK_HPP
 #include <iostream>
+#include <string>
 #include "LinkedList.hpp"
 
 template <typename var_type>
@@ -70,10 +71,17 @@ public:
         return (Disc_List->readNode(0)->getSize());
     }
 
-    var_type* getDiscInfo(int pos)
+    string getDiscString(int pos)
     {
-        return Disc_List->readNode(pos);
+        if(Disc_List->readNode(pos) == NULL)
+        {
+            return "NULL";
+        }
+        string to_Return;
+        to_Return = to_string(Disc_List->readNode(pos)->getData());
+        return to_Return;
     }
+
 private:
     LinkedList<var_type>* Disc_List;
 };
