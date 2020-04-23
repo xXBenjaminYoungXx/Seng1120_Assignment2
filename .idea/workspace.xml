@@ -37,6 +37,11 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Desktop\UON\Year2\Sem1\Seng1120\Cpp_Files\Assignment2" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Assignment2" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Assignment2" TARGET_NAME="Assignment2" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Assignment2" RUN_TARGET_NAME="Assignment2">
       <method v="2">
@@ -57,7 +62,8 @@
       <workItem from="1587523002828" duration="256000" />
       <workItem from="1587523287736" duration="3439000" />
       <workItem from="1587529879810" duration="367000" />
-      <workItem from="1587530426645" duration="3796000" />
+      <workItem from="1587530426645" duration="14591000" />
+      <workItem from="1587608863569" duration="17325000" />
     </task>
     <servers />
   </component>
@@ -77,21 +83,48 @@
       <screen x="0" y="0" width="1707" height="920" />
     </state>
     <state x="634" y="202" key="FileChooserDialogImpl/0.0.1707.920@0.0.1707.920" timestamp="1587523261963" />
-    <state width="1663" height="242" key="GridCell.Tab.0.bottom" timestamp="1587531713870">
+    <state width="1663" height="244" key="GridCell.Tab.0.bottom" timestamp="1587627339930">
       <screen x="0" y="0" width="1707" height="920" />
     </state>
-    <state width="1663" height="242" key="GridCell.Tab.0.bottom/0.0.1707.920@0.0.1707.920" timestamp="1587531713870" />
-    <state width="1663" height="242" key="GridCell.Tab.0.center" timestamp="1587531713869">
+    <state width="1663" height="244" key="GridCell.Tab.0.bottom/0.0.1707.920@0.0.1707.920" timestamp="1587627339930" />
+    <state width="1663" height="244" key="GridCell.Tab.0.center" timestamp="1587627339930">
       <screen x="0" y="0" width="1707" height="920" />
     </state>
-    <state width="1663" height="242" key="GridCell.Tab.0.center/0.0.1707.920@0.0.1707.920" timestamp="1587531713869" />
-    <state width="1663" height="242" key="GridCell.Tab.0.left" timestamp="1587531713869">
+    <state width="1663" height="244" key="GridCell.Tab.0.center/0.0.1707.920@0.0.1707.920" timestamp="1587627339930" />
+    <state width="1663" height="244" key="GridCell.Tab.0.left" timestamp="1587627339930">
       <screen x="0" y="0" width="1707" height="920" />
     </state>
-    <state width="1663" height="242" key="GridCell.Tab.0.left/0.0.1707.920@0.0.1707.920" timestamp="1587531713869" />
-    <state width="1663" height="242" key="GridCell.Tab.0.right" timestamp="1587531713869">
+    <state width="1663" height="244" key="GridCell.Tab.0.left/0.0.1707.920@0.0.1707.920" timestamp="1587627339930" />
+    <state width="1663" height="244" key="GridCell.Tab.0.right" timestamp="1587627339930">
       <screen x="0" y="0" width="1707" height="920" />
     </state>
-    <state width="1663" height="242" key="GridCell.Tab.0.right/0.0.1707.920@0.0.1707.920" timestamp="1587531713869" />
+    <state width="1663" height="244" key="GridCell.Tab.0.right/0.0.1707.920@0.0.1707.920" timestamp="1587627339930" />
+    <state width="1663" height="300" key="GridCell.Tab.1.bottom" timestamp="1587627209209">
+      <screen x="0" y="0" width="1707" height="920" />
+    </state>
+    <state width="1663" height="300" key="GridCell.Tab.1.bottom/0.0.1707.920@0.0.1707.920" timestamp="1587627209209" />
+    <state width="1663" height="300" key="GridCell.Tab.1.center" timestamp="1587627209208">
+      <screen x="0" y="0" width="1707" height="920" />
+    </state>
+    <state width="1663" height="300" key="GridCell.Tab.1.center/0.0.1707.920@0.0.1707.920" timestamp="1587627209208" />
+    <state width="1663" height="300" key="GridCell.Tab.1.left" timestamp="1587627209208">
+      <screen x="0" y="0" width="1707" height="920" />
+    </state>
+    <state width="1663" height="300" key="GridCell.Tab.1.left/0.0.1707.920@0.0.1707.920" timestamp="1587627209208" />
+    <state width="1663" height="300" key="GridCell.Tab.1.right" timestamp="1587627209208">
+      <screen x="0" y="0" width="1707" height="920" />
+    </state>
+    <state width="1663" height="300" key="GridCell.Tab.1.right/0.0.1707.920@0.0.1707.920" timestamp="1587627209208" />
+    <state x="516" y="195" width="672" height="678" key="search.everywhere.popup" timestamp="1587609558459">
+      <screen x="0" y="0" width="1707" height="920" />
+    </state>
+    <state x="516" y="195" width="672" height="678" key="search.everywhere.popup/0.0.1707.920@0.0.1707.920" timestamp="1587609558459" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="CMakeRunConfiguration">
+        <watch expression="this-&gt;Rod_List-&gt;head-&gt;data-&gt;Disc_List-&gt;head" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

@@ -6,6 +6,22 @@
 
 #IncludeRegexTransform: 
 
+C:/Users/User/Desktop/UON/Year2/Sem1/Seng1120/Cpp_Files/Assignment2/DiscInt.hpp
+iostream
+-
+
+C:/Users/User/Desktop/UON/Year2/Sem1/Seng1120/Cpp_Files/Assignment2/DiscString.hpp
+iostream
+-
+string
+-
+
+C:/Users/User/Desktop/UON/Year2/Sem1/Seng1120/Cpp_Files/Assignment2/LStack.hpp
+iostream
+-
+LinkedList.hpp
+C:/Users/User/Desktop/UON/Year2/Sem1/Seng1120/Cpp_Files/Assignment2/LinkedList.hpp
+
 C:/Users/User/Desktop/UON/Year2/Sem1/Seng1120/Cpp_Files/Assignment2/LinkedList.hpp
 Node.hpp
 C:/Users/User/Desktop/UON/Year2/Sem1/Seng1120/Cpp_Files/Assignment2/Node.hpp
@@ -16,9 +32,21 @@ C:/Users/User/Desktop/UON/Year2/Sem1/Seng1120/Cpp_Files/Assignment2/Node.hpp
 cstddef
 -
 
-C:/Users/User/Desktop/UON/Year2/Sem1/Seng1120/Cpp_Files/Assignment2/main.cpp
+C:/Users/User/Desktop/UON/Year2/Sem1/Seng1120/Cpp_Files/Assignment2/TowerHanoi.hpp
 iostream
 -
 LinkedList.hpp
 C:/Users/User/Desktop/UON/Year2/Sem1/Seng1120/Cpp_Files/Assignment2/LinkedList.hpp
+LStack.hpp
+C:/Users/User/Desktop/UON/Year2/Sem1/Seng1120/Cpp_Files/Assignment2/LStack.hpp
+
+C:/Users/User/Desktop/UON/Year2/Sem1/Seng1120/Cpp_Files/Assignment2/main.cpp
+iostream
+-
+DiscInt.hpp
+C:/Users/User/Desktop/UON/Year2/Sem1/Seng1120/Cpp_Files/Assignment2/DiscInt.hpp
+DiscString.hpp
+C:/Users/User/Desktop/UON/Year2/Sem1/Seng1120/Cpp_Files/Assignment2/DiscString.hpp
+TowerHanoi.hpp
+C:/Users/User/Desktop/UON/Year2/Sem1/Seng1120/Cpp_Files/Assignment2/TowerHanoi.hpp
 

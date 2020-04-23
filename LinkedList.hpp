@@ -4,7 +4,7 @@
 // Author: Benjamin Yong
 // Student ID: C3330653
 // Email: BenjaminYoung7198@gmail.com
-// Date: 7/04/2020.
+// Date: 22/04/2020.
 //
 // ***Functions***
 // 1.LinkedList Constructors
@@ -361,12 +361,11 @@ private:
     Node<var_type>* iterator;
 };
 /**********************************************************************************************************************/
-
+//Required operation is to print out the components of each node in order
 template <typename var_type>
 std::ostream& operator << (std::ostream& out, LinkedList<var_type>& list)
 {
     int count = 0;
-    //Required operation is to print out the components of each node in order
     while(count < list.size())
     {
         out << *(list.readNode(count)) << " ";

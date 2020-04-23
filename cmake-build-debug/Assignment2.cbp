@@ -82,6 +82,15 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/User/Desktop/UON/Year2/Sem1/Seng1120/Cpp_Files/Assignment2/DiscInt.hpp">
+			<Option target="Assignment2"/>
+		</Unit>
+		<Unit filename="C:/Users/User/Desktop/UON/Year2/Sem1/Seng1120/Cpp_Files/Assignment2/DiscString.hpp">
+			<Option target="Assignment2"/>
+		</Unit>
+		<Unit filename="C:/Users/User/Desktop/UON/Year2/Sem1/Seng1120/Cpp_Files/Assignment2/LStack.hpp">
+			<Option target="Assignment2"/>
+		</Unit>
 		<Unit filename="C:/Users/User/Desktop/UON/Year2/Sem1/Seng1120/Cpp_Files/Assignment2/LinkedList.hpp">
 			<Option target="Assignment2"/>
 		</Unit>
@@ -89,6 +98,9 @@
 			<Option target="Assignment2"/>
 		</Unit>
 		<Unit filename="C:/Users/User/Desktop/UON/Year2/Sem1/Seng1120/Cpp_Files/Assignment2/Queue.hpp">
+			<Option target="Assignment2"/>
+		</Unit>
+		<Unit filename="C:/Users/User/Desktop/UON/Year2/Sem1/Seng1120/Cpp_Files/Assignment2/TowerHanoi.hpp">
 			<Option target="Assignment2"/>
 		</Unit>
 		<Unit filename="C:/Users/User/Desktop/UON/Year2/Sem1/Seng1120/Cpp_Files/Assignment2/main.cpp">

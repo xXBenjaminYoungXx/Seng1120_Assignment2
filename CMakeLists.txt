@@ -3,4 +3,4 @@ project(Assignment2)
 
 set(CMAKE_CXX_STANDARD 98)
 
-add_executable(Assignment2 Node.hpp LinkedList.hpp Queue.hpp main.cpp)
+add_executable(Assignment2 Node.hpp LinkedList.hpp Queue.hpp main.cpp DiscInt.hpp DiscString.hpp LStack.hpp TowerHanoi.hpp)
