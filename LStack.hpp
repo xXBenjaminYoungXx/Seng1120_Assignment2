@@ -68,18 +68,17 @@ public:
 
     int sizeOfTopDisc()
     {
+        if(Disc_List->readNode(0) == NULL)
+            return 0;
         return (Disc_List->readNode(0)->getSize());
     }
-
-    string getDiscString(int pos)
+/**********************************************************************************************************************/
+/*Used for print operations*/
+    std::string getDiscData(int pos)
     {
         if(Disc_List->readNode(pos) == NULL)
-        {
-            return "NULL";
-        }
-        string to_Return;
-        to_Return = to_string(Disc_List->readNode(pos)->getData());
-        return to_Return;
+            return "";
+        return Disc_List->readNode(pos)->getData();
     }
 
 private:

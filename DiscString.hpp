@@ -19,7 +19,7 @@
 #define ASSIGNMENT2_DISCSTRING_HPP
 #include <iostream>
 #include <string>
-using namespace std;
+//using namespace std;
 
 class DiscString
 {
@@ -57,13 +57,13 @@ public:
     // Pre-Condition: None
     //
     // Post-Condition: Integer of the Disk object
-    string getData() const
+    std::string getData() const
     {
         return X_Disk;
     }
 
 private:
-    string X_Disk;    // Disk number should always remain constant during the game
+    std::string X_Disk;    // Disk number should always remain constant during the game
 };
 
 std::ostream& operator << (std::ostream& out, DiscString& Disk)

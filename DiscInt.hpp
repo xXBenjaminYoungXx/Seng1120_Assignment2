@@ -17,6 +17,8 @@
 #ifndef ASSIGNMENT2_DISCINT_HPP
 #define ASSIGNMENT2_DISCINT_HPP
 #include <iostream>
+#include <string>
+//using namespace std;
 
 class DiscInt
 {
@@ -48,9 +50,27 @@ public:
         return Num;
     }
 
-    int getData() const
+    std::string getData() const
     {
-        return Num;
+        std::string to_return;
+        switch(Num) {
+            case 1:
+                to_return = "1";
+                break;
+            case 2:
+                to_return = "2";
+                break;
+            case 3:
+                to_return = "3";
+                break;
+            case 4:
+                to_return = "4";
+                break;
+            case 5:
+                to_return = "5";
+                break;
+        }
+        return to_return;
     }
 
 private:

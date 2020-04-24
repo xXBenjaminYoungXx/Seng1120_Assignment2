@@ -7,7 +7,6 @@
 #include <iostream>
 #include "LinkedList.hpp"
 #include "LStack.hpp"
-using namespace std;
 
 template <typename var_type>
 class TowerHanoi
@@ -34,50 +33,67 @@ public:
     {
         delete(Rod_List);
     }
-
+/**********************************************************************************************************************/
     void move(int rodFrom, int rodTo)
-    {
-        if((rodFrom > 3) || (rodTo > 3) || (rodFrom < 1) || (rodTo < 1))      // Check params
-        {
-            cout << "***Invalid Rod choice. Choose value 1 2 or 3***" << endl;
-            return;
-        }
-
-        if(rodFrom == rodTo)
-        {
-            cout << "***Invalid Rod choice. Cannot choose same rod***" << endl;
-            return;
-        }
-
-        if((Rod_List->readNode(rodFrom-1)->numOfDiscs() == 0))       // Take disc-data from rodFrom
-        {                                                            //
-            cout << "***Invalid Rod choice. Rod is empty***" << endl;// Issues include empty list
-            return;
-        }
-        // Read rodTo to see if a disc exists, and if so ensure its larger
-        if(Rod_List->readNode(rodTo - 1)->numOfDiscs() != 0)// There is a disc
-        {
+    {                                                                           // Check params
+        if((rodFrom > 3) || (rodTo > 3) || (rodFrom < 1) || (rodTo < 1))        // If input rod is non-existent
+        {                                                                       //
+            std::cout << "***Invalid Rod choice. Choose value 1 2 or 3***" << std::endl;  // Print respective error message
+            return;                                                             //
+        }                                                                       //
+                                                                                //
+        if(rodFrom == rodTo)                                                    // If the two input rods are equal
+        {                                                                       //
+            std::cout << "***Invalid Rod choice. Cannot choose same rod***" << std::endl; //
+            return;                                                             //
+        }                                                                       //
+                                                                                //
+        if((Rod_List->readNode(rodFrom-1)->numOfDiscs() == 0))                  // If rod to take from has no discs
+        {                                                                       //
+            std::cout << "***Invalid Rod choice. Rod is empty***" << std::endl; // Print respective error message
+            return;                                                             //
+        }                                                                       //
+                                                                                // Read rodTo to see if a disc exists, and if so, ensure it's larger
+        if(Rod_List->readNode(rodTo - 1)->numOfDiscs() != 0)                    // There is a disc
+        {                                                                       // Is that disc larger or smaller
             if(Rod_List->readNode(rodTo-1)->sizeOfTopDisc() < Rod_List->readNode(rodFrom-1)->sizeOfTopDisc())
-            {
-                cout << "***Invalid Move. Disk on rod is to small***" << endl;
-                return;
-            }
-        }
-        // The line below removes Disc from rodFrom and adds to rodTo
+            {                                                                   // It is smaller, therefore invalid move
+                std::cout << "***Invalid Move. Disk on rod is to small***" << std::endl;  //
+                return;                                                         //
+            }                                                                   //
+        }                                                                       //
         Rod_List->readNode(rodTo-1)->addToRod( Rod_List->readNode(rodFrom-1)->removeFromRod() );
-        return;
+        return;                                                                 // Update rods & their added/removed discs
     }
 
-    string gamePrint(int rod, int y)
+    bool checkWin()
     {
-        string temp = Rod_List->readNode(rod)->getDiscString(y);
-        return temp;
+        if(Rod_List->readNode(2)->numOfDiscs() == gameSize)
+            return true;
+        return false;
+    }
+/**********************************************************************************************************************/
+    std::string gameDiscString(int rod, int y)
+    {
+        if(Rod_List->readNode(rod-1) == NULL)
+            return "";
+
+        int numOfDiscs = Rod_List->readNode(rod-1)->numOfDiscs();         // Due to how the Discs are structured and handled in
+                                                                          // the LinkedLists, the y level may not represent
+        if((numOfDiscs < gameSize) && (y < (gameSize - numOfDiscs)))      // The appropriate disc. Because of this, this if statement is needed.
+            return "";                                                    // If not all discs are on the rod, y might be out of
+        else if((numOfDiscs < gameSize) && (y >= (gameSize - numOfDiscs)))// scope, hence we check to see if y is out of scope,
+            y = y-(gameSize-numOfDiscs);                                  // and return empty string
+                                                                          // If y is in scope, we need to adjust scale
+        return Rod_List->readNode(rod-1)->getDiscData(y);                 // Return string data
     }
 
     int getGameSize()
     {
         return gameSize;
     }
+
+/**********************************************************************************************************************/
 private:
     LinkedList< LStack<var_type> >* Rod_List;
     int gameSize;
@@ -86,20 +102,54 @@ private:
 template <typename var_type>
 std::ostream& operator << (std::ostream& out, TowerHanoi<var_type>& game)
 {
-    int rod = 0;
-    int strSize;
-    int gameSize = game.getGameSize();
-    string gameString;
-    for(int y = 0; y < gameSize; y++)
+    std::string tempStr;                        // String used to hold data to be modified to then be printed
+    int horiz_Length = (2*game.getGameSize()-1);// The number of horizontal characters that is needed to print a rod
+    const int game_Length = 3*horiz_Length;     // The number of horizontal characters that is needed to print game, excluding spacing characters
+    int rodNum = 1;                             // Used to print label numbers
+
+    for(int y = 0; y < game.getGameSize(); y++) // Print rows
     {
-        for(int x = 0; x != 3; x++)
+        for(int rod = 1; rod != 4; rod++)       // Print coloums
         {
-            //Get string size to figure out Number of white spaces
-            gameString = game.gamePrint(rod, y);
-            rod++;
+            tempStr = game.gameDiscString(rod,y);
+
+            if(tempStr.size() == 0)             // If true, add whitespace character to maintain alignment
+            {
+                tempStr = " ";
+            }
+
+            while(tempStr.size() < (horiz_Length)) // add white space characters till required length is met
+            {
+                tempStr.insert(0," ");
+                tempStr.insert(tempStr.size()," ");
+            }
+
+            if(rod == 1)                        // Add additional whitespace at start to space discs from screen side
+                tempStr.insert(0, "  ");
+            out << tempStr << " ";              // Add additional whitespace at end of disc to allow space
         }
-        out << gameString << endl;
+        out << std::endl;
     }
+                                                // For loop for game base
+    for(int x = 0; x < game_Length + 6; x++)    // +6 for spaces between rods/line ends
+    {
+        out << "-";
+    }
+
+    out << std::endl << "  ";                   // Additional whitespace for spacing
+
+    for(int x = 1; x < game_Length + 5; x++)    // For loop for numbering
+    {
+        if(x == game.getGameSize() || x == 3*game.getGameSize() || x == 5*game.getGameSize())// Every odd multiple of game_length
+        {
+            out << rodNum;
+            rodNum++;
+        } else
+            out << " ";
+    }
+
+    out << std::endl;
+
     return out;
 }// F end
 #endif //ASSIGNMENT2_TOWERHANOI_HPP
