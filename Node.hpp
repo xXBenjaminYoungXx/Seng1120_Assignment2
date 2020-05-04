@@ -1,83 +1,67 @@
 //
-// Created by Benjamin Young on 7/04/2020.
-//
+// Seng1120: Assignment 2
+// File: Node.hpp
+// Author: Benjamin Yong
+// Student ID: C3330653
+// Email: BenjaminYoung7198@gmail.com
+// Date: 22/04/2020.
 
-#ifndef LAB7_NODE_HPP
-#define LAB7_NODE_HPP
+#ifndef ASSIGNMENT2_FIXED_NODE_HPP
+#define ASSIGNMENT2_FIXED_NODE_HPP
 
-#include <cstddef>
+#include "Node.h"
 
-template <typename val_type>
-class Node
+template <typename var_type>
+Node<var_type>::Node()
 {
-public:
-    // Pre-Condition: None
-    //
-    // Post-Condition: None
-    Node()
-    {
-        next = NULL;
-        prev = NULL;
-        data = NULL;
-    }
-    // Pre-Condition: Node* to next node, Node* to previous node, and val_type* to data.
-    // can accept NULL pointers
-    //
-    // Post-Condition: None
-    Node(Node* nNode, Node* pNode, val_type* pData)
-    {
-        next = nNode;
-        prev = pNode;
-        data = pData;
-    }
-    // Pre-Condition: None
-    //
-    // Post-Condition: None
-    ~Node()
-    {
-        delete(data);
-        data = NULL;
-    }
-    // Pre-Condition: None
-    //
-    // Post-Condition: Node* to next node
-    Node* getN() const
-    {
-        return next;
-    }
-    // Pre-Condition: None
-    //
-    // Post-Condition: Node* to previous node
-    Node* getP() const
-    {
-        return prev;
-    }
-    // Pre-Condition: None
-    //
-    // Post-Condition: val_type* to data
-    val_type* getD() const
-    {
-        return data;
-    }
-    // Pre-Condition: Node* to new next node
-    //
-    // Post-Condition: None
-    void setN(Node* nNode)
-    {
-        next = nNode;
-    }
-    // Pre-Condition: Node* to new previous Node
-    //
-    // Post-Condition: None
-    void setP(Node* pNode)
-    {
-        prev = pNode;
-    }
+    next = NULL;
+    prev = NULL;
+    data = NULL;
+}
 
-private:
-    Node* next;     //next node on list
-    Node* prev;     //previous node on list
-    val_type* data; //Once set it cannot change
-};
+template <typename var_type>
+Node<var_type>::Node(Node* nNode, Node* pNode, var_type* pData)
+{
+    next = nNode;
+    prev = pNode;
+    data = pData;
+}
 
-#endif //LAB7_NODE_HPP
+template <typename var_type>
+Node<var_type>::~Node()
+{
+    delete(data);
+    data = NULL;
+}
+
+template <typename var_type>
+Node<var_type>* Node<var_type>::getN() const
+{
+    return next;
+}
+
+template <typename var_type>
+Node<var_type>* Node<var_type>::getP() const
+{
+    return prev;
+}
+
+template <typename var_type>
+var_type* Node<var_type>::getD() const
+{
+    return data;
+}
+
+template <typename var_type>
+void Node<var_type>::setN(Node* nNode)
+{
+    next = nNode;
+}
+
+template <typename var_type>
+void Node<var_type>::setP(Node* pNode)
+{
+    prev = pNode;
+}
+
+#endif

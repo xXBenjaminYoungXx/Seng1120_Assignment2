@@ -6,9 +6,9 @@
 
 #include <iostream>
 #include <cstdlib>
-#include "TowerHanoi.hpp"
-#include "DiscString.hpp"
-#include "DiscInt.hpp"
+#include "TowerHanoi.h"
+#include "DiscString.h"
+#include "DiscInt.h"
 
 using namespace std;
 
@@ -27,8 +27,8 @@ int main()
     while ((numberOfDiscs < 1) || (numberOfDiscs > 5));
 
 
-    //TowerHanoi<DiscString> game(numberOfDiscs); // initialize the game with discs represented as strings.
-    TowerHanoi<DiscInt> game(numberOfDiscs); // initialize the game with discs represented as integers.
+    TowerHanoi<DiscString> game(numberOfDiscs); // initialize the game with discs represented as strings.
+    //TowerHanoi<DiscInt> game(numberOfDiscs); // initialize the game with discs represented as integers.
 
     // start of the game
     cout << game; // print the current state of the game on the screen
@@ -48,3 +48,4 @@ int main()
 
     return 0;
 }
+
