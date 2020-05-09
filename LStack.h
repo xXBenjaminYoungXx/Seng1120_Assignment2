@@ -42,27 +42,27 @@ public:
     //Pre-Condition: int size of Disc
     //
     //Post-Condition: bool, was successful--> true
-    bool addToRod(int size);
+    bool push(int size);
 
     //Pre-Condition: None
     //
     //Post-Condition: Size of removed disc
-    int removeFromRod();
+    int pop();
 
     //Pre-Condition: None
     //
     //Post-Condition: Int number of discs
-    int numOfDiscs();
+    int size();
 
     //Pre-Condition: None
     //
     //Post-Condition: Int, size of top disc
-    int sizeOfTopDisc();
+    int sizeOfTop();
 
     //Pre-Condition: int, position of disc
     //
     //Post-Condition: string of disc
-    std::string getDiscData(int pos);
+    std::string getRodComponent(int pos);
 
 private:
     LinkedList<var_type>* Disc_List;

@@ -19,7 +19,7 @@ public:
 
     bool checkWin();
 /**********************************************************************************************************************/
-    std::string gameDiscString(int rod, int y);
+    std::string getRodStrComponent(int rod, int y);
 
     int getGameSize();
 

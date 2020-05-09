@@ -30,7 +30,7 @@ LStack<var_type>::~LStack()
 }
 
 template <typename var_type>
-bool LStack<var_type>::addToRod(int size)
+bool LStack<var_type>::push(int size)
 {
     if(Disc_List->size() == 0)                          // If no discs are currently on rod
     {
@@ -44,7 +44,7 @@ bool LStack<var_type>::addToRod(int size)
 }
 
 template <typename var_type>
-int LStack<var_type>::removeFromRod()
+int LStack<var_type>::pop()
 {
     if(Disc_List->size() == 0)                          // If No Discs in list
         return 0;                                       //
@@ -54,13 +54,13 @@ int LStack<var_type>::removeFromRod()
 }
 
 template <typename var_type>
-int LStack<var_type>::numOfDiscs()
+int LStack<var_type>::size()
 {
     return Disc_List->size();
 }
 
 template <typename var_type>
-int LStack<var_type>::sizeOfTopDisc()
+int LStack<var_type>::sizeOfTop()
 {
     if(Disc_List->readNode(0) == NULL)
         return 0;
@@ -70,7 +70,7 @@ int LStack<var_type>::sizeOfTopDisc()
 /**********************************************************************************************************************/
 /*Used for print operations*/
 template <typename var_type>
-std::string LStack<var_type>::getDiscData(int pos)
+std::string LStack<var_type>::getRodComponent(int pos)
 {
     if(Disc_List->readNode(pos) == NULL)
         return "";

@@ -18,7 +18,7 @@ TowerHanoi<var_type>::TowerHanoi(int discNum)
     //
     for(int i = discNum; i != 0 ; i--)            //
     {                                             //
-        Rod_List->readNode(0)->addToRod(i);       // Add Discs to initial rod
+        Rod_List->readNode(0)->push(i);       // Add Discs to initial rod
     }
 }
 
@@ -43,46 +43,44 @@ void TowerHanoi<var_type>::move(int rodFrom, int rodTo)
         return;                                                             //
     }                                                                       //
     //
-    if((Rod_List->readNode(rodFrom-1)->numOfDiscs() == 0))                  // If rod to take from has no discs
+    if((Rod_List->readNode(rodFrom-1)->size() == 0))                  // If rod to take from has no discs
     {                                                                       //
         std::cout << "***Invalid Rod choice. Rod is empty***" << std::endl; // Print respective error message
         return;                                                             //
     }                                                                       //
     // Read rodTo to see if a disc exists, and if so, ensure it's larger
-    if(Rod_List->readNode(rodTo - 1)->numOfDiscs() != 0)                    // There is a disc
+    if(Rod_List->readNode(rodTo - 1)->size() != 0)                    // There is a disc
     {                                                                       // Is that disc larger or smaller
-        if(Rod_List->readNode(rodTo-1)->sizeOfTopDisc() < Rod_List->readNode(rodFrom-1)->sizeOfTopDisc())
+        if(Rod_List->readNode(rodTo-1)->sizeOfTop() < Rod_List->readNode(rodFrom-1)->sizeOfTop())
         {                                                                   // It is smaller, therefore invalid move
             std::cout << "***Invalid Move. Disk on rod is to small***" << std::endl;  //
             return;                                                         //
         }                                                                   //
     }                                                                       //
-    Rod_List->readNode(rodTo-1)->addToRod( Rod_List->readNode(rodFrom-1)->removeFromRod() );
+    Rod_List->readNode(rodTo-1)->push( Rod_List->readNode(rodFrom-1)->pop());
     return;                                                                 // Update rods & their added/removed discs
 }
 
 template <typename var_type>
 bool TowerHanoi<var_type>::checkWin()
 {
-    if(Rod_List->readNode(2)->numOfDiscs() == gameSize)
-        return true;
-    return false;
+    return Rod_List->readNode(2)->size() == gameSize;
 }
 /**********************************************************************************************************************/
 template <typename var_type>
-std::string TowerHanoi<var_type>::gameDiscString(int rod, int y)
+std::string TowerHanoi<var_type>::getRodStrComponent(int rod, int y)
 {
     if(Rod_List->readNode(rod-1) == NULL)
         return "";
 
-    int numOfDiscs = Rod_List->readNode(rod-1)->numOfDiscs();         // Due to how the Discs are structured and handled in
-    // the LinkedLists, the y level may not represent
-    if((numOfDiscs < gameSize) && (y < (gameSize - numOfDiscs)))      // The appropriate disc. Because of this, this if statement is needed.
+    int numOfDiscs = Rod_List->readNode(rod-1)->size();               // Due to how the Discs are structured and handled in
+                                                                      //  the LinkedLists, the y level may not represent
+    if((numOfDiscs < gameSize) && (y < (gameSize - numOfDiscs)))      //  The appropriate disc. Because of this, this if statement is needed.
         return "";                                                    // If not all discs are on the rod, y might be out of
-    else if((numOfDiscs < gameSize) && (y >= (gameSize - numOfDiscs)))// scope, hence we check to see if y is out of scope,
-        y = y-(gameSize-numOfDiscs);                                  // and return empty string
-    // If y is in scope, we need to adjust scale
-    return Rod_List->readNode(rod-1)->getDiscData(y);                 // Return string data
+    else if((numOfDiscs < gameSize) && (y >= (gameSize - numOfDiscs)))//  scope, hence we check to see if y is out of scope,
+        y = y-(gameSize-numOfDiscs);                                  //  and return empty string
+                                                                      // If y is in scope, we need to adjust scale
+    return Rod_List->readNode(rod-1)->getRodComponent(y);             // Return string data
 }
 
 template <typename var_type>
@@ -101,9 +99,9 @@ std::ostream& operator << (std::ostream& out, TowerHanoi<var_type>& game)
 
     for(int y = 0; y < game.getGameSize(); y++) // Print rows
     {
-        for(int rod = 1; rod != 4; rod++)       // Print coloums
+        for(int rod = 1; rod != 4; rod++)       // Print columns
         {
-            tempStr = game.gameDiscString(rod,y);
+            tempStr = game.getRodStrComponent(rod,y);
 
             if(tempStr.size() == 0)             // If true, add whitespace character to maintain alignment
             {
